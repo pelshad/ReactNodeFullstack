@@ -19,7 +19,7 @@ in folder
 
 - npm install axios
 
-- create setupProxy.js
+- create setupProxy.js in src
 
 ## server set up
 
@@ -27,4 +27,4 @@ in folder
 
 - npm init
 
-- create server.js
+- create server.js in root
