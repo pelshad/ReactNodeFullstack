@@ -5,6 +5,11 @@ const cors = require('cors');
 const app = express(); // 백엔드 정의
 const server = require('http').createServer(app);
 
+// bodyParser setting
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended : false}));
+app.use(bodyParser.json());
+
 // sql connect
 const mysql = require('mysql');
 
@@ -12,7 +17,7 @@ const con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'coren',
-  database: 'test'
+  database: 'node'
 });
 
 con.connect(function(err){
@@ -28,15 +33,22 @@ app.use(cors()); // cors 미들웨어를 삽입합니다.
 //sql 사용예시
 // const sql변수명 = "sql문";
 // con.query(sql변수명, ?에 들어갈 값, 실행함수)
-app.get('/', (req, res) => { // 요청패스에 대한 콜백함수를 넣어줍니다.
+app.get('/sel_user', (req, res) => { // 요청패스에 대한 콜백함수를 넣어줍니다.
   // select문 예시
-  const sql = "select * from member";
+  const sql = "select * from nodetest";
   con.query(sql, (err, result, fields) => {
     if (err) throw err;
     res.send(result);
   })
-  
+});
 
+app.post('/ins_user', (req, res) => {
+  const name = req.body.NAME;
+  const sql = "INSERT INTO nodetest (NAME) VALUES (?)";
+  con.query(sql, name, function(err, result, fields){
+    if (err) throw err;
+    console.log(result);
+  })
 });
 
 server.listen(8080, ()=>{
