@@ -21,6 +21,8 @@ in folder
 
 - create setupProxy.js in src
 
+- run front server : npm start
+
 ## server set up
 
 in folder
@@ -29,6 +31,6 @@ in folder
 
 - npm install nodemon
 
-- npx nodemon server.js
-
 - create server.js in root
+
+- run backend server : npx nodemon server.js
