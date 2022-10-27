@@ -31,7 +31,9 @@ in folder
 
 - npm install nodemon
 
-- npm npm install body-parser
+- npm install cors
+
+- npm install body-parser
 
 - create server.js in root
 
