@@ -31,6 +31,8 @@ in folder
 
 - npm install nodemon
 
+- npm npm install body-parser
+
 - create server.js in root
 
 - run backend server : npx nodemon server.js
