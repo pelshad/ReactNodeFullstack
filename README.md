@@ -27,4 +27,8 @@ in folder
 
 - npm init
 
+- npm install nodemon
+
+- npx nodemon server.js
+
 - create server.js in root
