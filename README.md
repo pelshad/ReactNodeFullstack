@@ -19,6 +19,8 @@ in folder
 
 - npm install axios
 
+- create setupProxy.js
+
 ## server set up
 
 in folder
