@@ -31,6 +31,12 @@ in folder
 
 - npm install nodemon
 
+- npm install cors
+
+- npm install body-parser
+
+- npm install mysql
+
 - create server.js in root
 
 - run backend server : npx nodemon server.js
@@ -39,4 +45,8 @@ in folder
 
 react - express (to axios)
 
--https://velog.io/@taeung/Express%EC%99%80-React-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0React%EC%97%90%EC%84%9C-Express%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B3%B4%EB%82%B4%EA%B8%B0
+- https://velog.io/@taeung/Express%EC%99%80-React-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0React%EC%97%90%EC%84%9C-Express%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B3%B4%EB%82%B4%EA%B8%B0
+
+express - mysql
+
+- https://codingcoding.tistory.com/449
