@@ -1,0 +1,10 @@
+.liDiv {
+    width: 300px;
+    background-color: aliceblue;
+}
+
+.liDiv li{
+    padding: 5px;
+    width: 80%;
+    display: inline-block;
+}

@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react';
+import './common.css';
 
 function App() {
   const [userdata, setUserdata] = useState([]);
   const [insData, setData] = useState('');
-
+  const [check, setCheck] = useState(0);
+  
   const sendRequest = async() => {
     const response = await axios.get('http://localhost:8080/sel_user');
     // console.log(response.data);
@@ -13,22 +15,28 @@ function App() {
     console.log(resdata);
   };
 
-  useEffect(()=>{
-    sendRequest();    
-  },{userdata});
-
   const inputData = (e) => {
     setData(e.target.value);
-    console.log(insData);
   }
 
   const sendData = async () => {
-    const res = await axios.post('http://localhost:8080/ins_user', {NAME : insData});
-    console.log(insData);
+    const res = await axios.post('http://localhost:8080/ins_user', 
+    {NAME : insData});
+    setCheck(check+1);
   }
+
+  useEffect(()=>{
+    sendRequest();
+  },[check]);
+
+  // const delData = async (e) =>{
+  //   const res = await axios.post('http://localhost:8080/del_user',
+  //   {data : e.target.value});
+  // }
 
   return (
     <div className="App">
+      <div>{check}</div>
       <input 
       type="text"
       onChange={inputData} />
@@ -37,7 +45,11 @@ function App() {
       <ul>
         {userdata.map((a,i)=>{
           return(
-            <li key={i}>{a.NAME}</li>
+            <div className='liDiv'>
+              <li key={i}>{a.NAME}</li>
+              {/* <span
+              onClick={delData}>x</span> */}
+            </div>
           )
         })}
       </ul>
