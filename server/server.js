@@ -50,7 +50,7 @@ app.post('/ins_user', (req, res) => {
   const sql = "INSERT INTO nodetest (NAME) VALUES (?)";
   con.query(sql, name, function(err, result, fields){
     if (err) throw err;
-    res.send('');//안돌려주면 백엔드가 삐져서 일안함
+    res.send('');//!!안돌려주면 백엔드가 삐져서 일안함(갑자기 insert 고장나서 고생했음!)
   })
 });
 

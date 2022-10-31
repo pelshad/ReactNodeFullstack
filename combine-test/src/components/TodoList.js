@@ -1,17 +1,27 @@
-import React from "react";
-import { useSelector, useDispaatch } from "react-redux";
-import {remove, complete} from '../redux/todoSlice';
-import s from './TodoList.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesom';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import React from 'react'
+import {useSelector, useDispatch } from 'react-redux'
+import { remove , complete } from '../redux/todoSlice'
 
 export default function TodoList() {
     const todolist = useSelector(state => state.todo);
-    const dispatch = useDispatch()
-
-    const trsh = <FontAwesomIcon icon={faTrashCan} />
+    const dispatch = useDispatch();
 
     console.log(todolist);
 
-    const todolistView = todolist.map((todo, idx))
+    const todolistView = todolist.map((todo, idx) => (
+        <li key={todolist[idx].id}>
+            <input type="checkbox" 
+            onChange={()=> dispatch(complete(todolist[idx].id))}/>
+            <div>{todo.complete === false ? <>{todo.text}</> : <del>{todo.text}</del>}</div>
+            <button type="button" onClick={() => dispatch(remove(todolist[idx].id))}>X</button>
+        </li>
+    )
+    )
+
+
+  return (
+        <>
+            <ul>{todolistView}</ul>   
+        </>
+  )
 }
