@@ -13,7 +13,9 @@ export default function TodoList() {
             <input type="checkbox" 
             onChange={()=> dispatch(complete(todolist[idx].id))}/>
             <div>{todo.complete === false ? <>{todo.text}</> : <del>{todo.text}</del>}</div>
-            <button type="button" onClick={() => dispatch(remove(todolist[idx].id))}>X</button>
+            <button type="button" onClick={() => 
+                dispatch(remove(todolist[idx].id))
+                }>X</button>
         </li>
     )
     )

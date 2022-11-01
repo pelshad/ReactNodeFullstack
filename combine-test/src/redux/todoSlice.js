@@ -4,6 +4,7 @@ import axios from 'axios';
 let nextId = 0; // todo idx의 정의
 const initialState = [];
 
+
 export const todoSlice = createSlice({
     // reducer 이름
     name : 'todofunction',
@@ -22,14 +23,11 @@ export const todoSlice = createSlice({
                 text : action.payload,
                 complete : false,
             });
-            const ins_user = async() => {
-                const response = await axios.post('https://localhost:8080/ins_user',
-                {NAME: state});
-            }
         },
 
         remove : (state, action) => {
-            return state.filter(e => e.id !== action.payload)
+            return state.filter(e => e.id !== action.payload);
+
         },
 
         complete : (state, action) => {

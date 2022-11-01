@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import {add} from '../redux/todoSlice'
@@ -20,11 +21,18 @@ export default function InputTodo(){
         setTodolist({text : ""})
     }
 
+    const sendReq = async () => {
+        const res = await axios.post('http://localhost:8080/ins_user',
+        {NAME : todolist.text});
+    }
+
     return (
         <div>
             <form onSubmit={(e) => {
                 e.preventDefault()
-                if(todolist.text != ""){dispatch(add(todolist.text))}
+                if(todolist.text != ""){
+                    dispatch(add(todolist.text));
+                    sendReq();}
                 else(alert("no Text"))
                 onReset()
             }}>
